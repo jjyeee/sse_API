@@ -1,0 +1,44 @@
+body {
+    background-color: #DCCCBB;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36px;
+}
+
+/* Styles for Latest Commit */
+.latest-commit {
+    margin-left: 20px;
+}
+
+/* Styles for commit details (hash, author, date, message) */
+.commit-details {
+    margin-left: 10px;
+}
+
+/* Styles for contents */
+.contents {
+    margin-left: 20px;
+}
+
+/* Styles for content items */
+.content-item {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.repo-item {
+    list-style: none;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    margin: 10px ;
+    background-color: #d9cac0;
+}
+
+.last-updated{
+    margin-left: 20px;
+}
+a:hover {
+  text-decoration: underline;
+}

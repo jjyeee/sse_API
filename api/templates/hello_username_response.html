@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HelloUsernameResponsePage</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>GitHub Repositories for {{ username }}</h1>
+    <ul class="repo-list">
+        {% for repo in repos %}
+        <li class="repo-item">
+            <h2 class="repo-name">{{ repo.name }}</h2>
+            <p class="last-updated"><strong>Last Updated:</strong> {{ repo.updated_at }}</p>
+            <div class="latest-commit">
+                {% if repo.latest_commit %}
+                <h3>Latest Commit:</h3>
+                <ul class="commit-details">
+                    <li><strong>Hash:</strong> {{ repo.latest_commit.hash }}</li>
+                    <li><strong>Author:</strong> {{ repo.latest_commit.author }}</li>
+                    <li><strong>Date:</strong> {{ repo.latest_commit.date }}</li>
+                    <li><strong>Message:</strong> {{ repo.latest_commit.message }}</li>
+                </ul>
+                {% endif %}
+            </div>
+            <div class="contents">
+                {% if repo.latest_commit.content %}
+                <h3>Contents:</h3>
+                <ul class="content-list">
+                    {% for content in repo.latest_commit.content %}
+                    <li class="content-item">
+                        <strong>Name:</strong> {{ content.name }}<br>
+                        <strong>Type:</strong> {{ content.type }}<br>
+                        <strong>URL:</strong> {{ content.url }}<br>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
